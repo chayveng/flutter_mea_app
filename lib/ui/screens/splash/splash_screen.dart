@@ -41,7 +41,7 @@ class _SplashScreenState extends State<SplashScreen> {
             Row(
               children: [
                 Container(
-                  height: 85,
+                  heigt: 85,
                   padding: EdgeInsets.only(left: sized.width * 0.1),
                   child: const Image(image: AssetImage("assets/images/LOGO.png")),
                 ),

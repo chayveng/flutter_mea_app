@@ -12,9 +12,10 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+
   @override
   void initState() {
-    // autoNavigator();
+    autoNavigator();
     super.initState();
   }
 
@@ -37,12 +38,18 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           // crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(
-              height: 85,
-              child: Image(image: AssetImage("assets/images/LOGO.png")),
+            Row(
+              children: [
+                Container(
+                  height: 85,
+                  padding: EdgeInsets.only(left: sized.width * 0.1),
+                  child: const Image(image: AssetImage("assets/images/LOGO.png")),
+                ),
+              ],
             ),
             SizedBox(
-              height: 320,
+              // width: sized.width,
+              width: 500,
               child: SvgPicture.asset("assets/images/LOGOMEASMARTLIFE.svg"),
             ),
           ],

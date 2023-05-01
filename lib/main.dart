@@ -1,69 +1,44 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mea_app/ui/app.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 void main() {
+  // runApp(const SplashTest());
   runApp(const App());
 }
-//
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
+
+// class SplashTest extends StatefulWidget {
+//   const SplashTest({Key? key}) : super(key: key);
 //
 //   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'Flutter Demo',
-//       theme: ThemeData.dark(),
-//       // theme: ThemeData(
-//       //   primarySwatch: Colors.blue,
-//       // ),
-//       home: const MyHomePage(title: 'Flutter Demo Home Page'),
-//     );
+//   State<SplashTest> createState() => _SplashTestState();
+// }
+
+// class _SplashTestState extends State<SplashTest> {
+//   @override
+//   void initState() {
+//     super.initState();
+//     initialization();
 //   }
-// }
 //
-// class MyHomePage extends StatefulWidget {
-//   const MyHomePage({super.key, required this.title});
-//
-//
-//
-//   final String title;
-//   @override
-//   State<MyHomePage> createState() => _MyHomePageState();
-// }
-//
-// class _MyHomePageState extends State<MyHomePage> {
-//   int _counter = 0;
-//
-//   void _incrementCounter() {
-//     setState(() {
-//       _counter++;
-//     });
+//   void initialization() async {
+//     print('ready in 3...');
+//     await Future.delayed(const Duration(seconds: 1));
+//     print('ready in 2...');
+//     await Future.delayed(const Duration(seconds: 1));
+//     print('ready in 1...');
+//     await Future.delayed(const Duration(seconds: 1));
+//     print('go!');
+//     FlutterNativeSplash.remove();
 //   }
 //
 //   @override
 //   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text(widget.title),
-//       ),
-//       body: Center(
-//         child: Column(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           children: <Widget>[
-//             const Text(
-//               'You have pushed the button this many times:',
-//             ),
-//             Text(
-//               '$_counter',
-//               style: Theme.of(context).textTheme.headlineMedium,
-//             ),
-//           ],
+//     return const MaterialApp(
+//       home: Scaffold(
+//         body: Center(
+//           child: Text("Splash Test"),
 //         ),
-//       ),
-//       floatingActionButton: FloatingActionButton(
-//         onPressed: _incrementCounter,
-//         tooltip: 'Increment',
-//         child: const Icon(Icons.add),
 //       ),
 //     );
 //   }

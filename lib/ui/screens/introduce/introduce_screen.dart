@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../constants.dart';
 
@@ -10,10 +11,31 @@ class IntroduceScreen extends StatefulWidget {
 }
 
 class _IntroduceScreenState extends State<IntroduceScreen> {
+
+  // @override
+  // void initState() {
+  //   // SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
+  //   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+  //     statusBarColor: Colors.transparent,
+  //   ));
+  //   super.initState();
+  // }
+
+  // @override
+  // void dispose() {
+  //   SystemChrome.setEnabledSystemUIOverlays(
+  //       [SystemUiOverlay.top, SystemUiOverlay.bottom]);
+  //   super.dispose();
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      extendBodyBehindAppBar: true,
+      // appBar: AppBar(
+      //   elevation: 0,
+      // ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: defaultPadding),

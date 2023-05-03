@@ -47,10 +47,12 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
               ],
             ),
-            const SizedBox(
+             Container(
               // width: sized.width,
               width: 500,
-              child: Image(image: AssetImage("assets/images/LOGOMEASMARTLIFE.png")),
+               padding: EdgeInsets.symmetric(horizontal: 16.0),
+               // padding: EdgeInsets.symmetric(horizontal: sized.width * 0.1),
+              child: const Image(image: AssetImage("assets/images/LOGOMEASMARTLIFE.png")),
               // child: SvgPicture.asset("assets/images/LOGOMEASMARTLIFE.svg"),
             ),
           ],

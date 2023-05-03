@@ -12,3 +12,6 @@ Size sized(BuildContext context) => MediaQuery.of(context).size;
 
 const double defaultPadding = 16.0;
 // const double defaultBorderRadius = 12.0;
+
+// child: Image(image: AssetImage("assets/images/LOGO.png")),
+// child: SvgPicture.asset("assets/images/LOGOMEASMARTLIFE.svg"),

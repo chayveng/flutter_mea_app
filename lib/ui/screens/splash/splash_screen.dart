@@ -41,16 +41,17 @@ class _SplashScreenState extends State<SplashScreen> {
             Row(
               children: [
                 Container(
-                  heigt: 85,
+                  height: 85,
                   padding: EdgeInsets.only(left: sized.width * 0.1),
                   child: const Image(image: AssetImage("assets/images/LOGO.png")),
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               // width: sized.width,
               width: 500,
-              child: SvgPicture.asset("assets/images/LOGOMEASMARTLIFE.svg"),
+              child: Image(image: AssetImage("assets/images/LOGOMEASMARTLIFE.png")),
+              // child: SvgPicture.asset("assets/images/LOGOMEASMARTLIFE.svg"),
             ),
           ],
         ),

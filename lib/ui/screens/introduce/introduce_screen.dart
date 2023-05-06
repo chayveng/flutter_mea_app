@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:equatable/equatable.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_mea_app/ui/screens/introduce/components/IndicatorCustom.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../constants.dart';
+import 'components/Buttons.dart';
+import 'components/IntroduceCustom.dart';
 import 'components/items.dart';
 
 class IntroduceScreen extends StatefulWidget {
@@ -12,135 +17,51 @@ class IntroduceScreen extends StatefulWidget {
 }
 
 class _IntroduceScreenState extends State<IntroduceScreen> {
-  // @override
-  // void initState() {
-  //   // SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
-  //   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-  //     statusBarColor: Colors.transparent,
-  //   ));
-  //   super.initState();
-  // }
+  PageController pageController = PageController(initialPage: 1);
+  int pageActive = 0;
 
-  // @override
-  // void dispose() {
-  //   SystemChrome.setEnabledSystemUIOverlays(
-  //       [SystemUiOverlay.top, SystemUiOverlay.bottom]);
-  //   super.dispose();
-  // }
+  @override
+  void setState(VoidCallback fn) {
+    super.setState(fn);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      extendBodyBehindAppBar: true,
-      // appBar: AppBar(
-      //   elevation: 0,
-      // ),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
-          child: SizedBox(
-            width: double.infinity,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Expanded(
-                  child: PageView.builder(
-                    itemCount: contents.length,
-                    itemBuilder: (context, index) => contents[index],
-                  ),
-                ),
-                // contents[0],
-                // const Image(
-                //   image: AssetImage("assets/images/IntroduceTitle-1.png"),
-                // ),
-                // Column(
-                //   children: [
-                //     const Image(
-                //       image: AssetImage("assets/images/IntroduceImage-1.png"),
-                //     ),
-                //     Row(
-                //       mainAxisAlignment: MainAxisAlignment.center,
-                //       children: [
-                //         ...List.generate(
-                //           3,
-                //           (index) => GestureDetector(
-                //             onTap: () => {print(index)},
-                //             child: Container(
-                //               width: 7,
-                //               height: 7,
-                //               margin: const EdgeInsets.symmetric(
-                //                 horizontal: 2.5,
-                //               ),
-                //               decoration: const BoxDecoration(
-                //                 color: orangeColor,
-                //                 // color: index == 1 ? orangeColor : Color(0xFFD9D9D9),
-                //                 borderRadius: BorderRadius.all(
-                //                   Radius.circular(7),
-                //                 ),
-                //               ),
-                //             ),
-                //           ),
-                //         ),
-                //       ],
-                //     ),
-                //   ],
-                // ),
-                Container(
-                  margin: const EdgeInsets.only(bottom: defaultPadding * 1.5),
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 50.0,
-                        width: double.infinity,
-                        child: ElevatedButton(
-                          onPressed: () => {print("เข้าสู่ระบบ")},
-                          style: ElevatedButton.styleFrom(
-                            primary: orangeColor,
-                            shape: const RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(20),
-                                // Radius.circular(defaultBorderRadius),
-                              ),
-                            ),
-                          ),
-                          child: const Text(
-                            "เข้าสู่ระบบ",
-                            style: TextStyle(fontSize: 20),
-                          ),
-                        ),
+        top: false,
+        child: Container(
+          padding: const EdgeInsets.only(top: defaultPadding * 2),
+          width: double.infinity,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Column(
+                children: [
+                  SizedBox(
+                    height: sized(context).width + 150,
+                    child: PageView.builder(
+                      itemCount: 3,
+                      onPageChanged: (index) =>
+                          setState(() => pageActive = index),
+                      itemBuilder: (context, index) => IntroduceCustom(
+                        title: titleList[index],
+                        index: index,
+                        pageActive: pageActive,
                       ),
-                      const SizedBox(height: 16),
-                      SizedBox(
-                        height: 50.0,
-                        width: double.infinity,
-                        child: ElevatedButton(
-                          onPressed: () => {print("ข้าม")},
-                          style: ElevatedButton.styleFrom(
-                            elevation: 0,
-                            primary: Colors.white,
-                            side: const BorderSide(
-                              width: 1,
-                              color: orangeColor,
-                            ),
-                            shape: const RoundedRectangleBorder(
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(20),
-                              ),
-                            ),
-                          ),
-                          child: const Text(
-                            "ข้าม",
-                            style: TextStyle(fontSize: 20, color: orangeColor),
-                          ),
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
-                ),
-              ],
-            ),
+                  Align(
+                    alignment: Alignment.topCenter,
+                    child: IndicatorCustom(pageActive: pageActive),
+                  ),
+                ],
+              ),
+              // const SizedBox(height: 16),
+              const Buttons(),
+            ],
           ),
         ),
       ),
